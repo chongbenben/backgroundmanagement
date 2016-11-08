@@ -174,11 +174,11 @@ name=123&desc=123&price=123&sum=234
 
 	var id = +req.query.id; // 为了拼凑正确的sql语句，这里要转下整数
   
-  ### 界面 ###
+### 界面 ###
 ![](http://ogbpwv1g9.bkt.clouddn.com/4.jpg)
-  ### 增加 ###
+### 增加 ###
 ![](http://ogbpwv1g9.bkt.clouddn.com/5.jpg)
-  ### 修改 ###
+### 修改 ###
 ![](http://ogbpwv1g9.bkt.clouddn.com/6.jpg)
-  ### 排序 ###
+### 排序 ###
 ![](http://ogbpwv1g9.bkt.clouddn.com/7.jpg)
