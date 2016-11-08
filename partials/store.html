@@ -1,0 +1,43 @@
+<p class="text-info">
+  欢迎光临 零食妞 后台管理.
+  <br />
+
+  搜索：<input class="form-control" ng-model="search">
+</p>
+
+<table class="table table-bordered">
+  <tr class="well">
+    <td colspan="4" class="tdRight">
+      <cart-info></cart-info>
+    </td>
+  </tr>
+  <tr class="well">
+    <td>图片</td>
+    <td>介绍</td>
+    <td ng-click="order = 'price'">价格</td>
+    <td>操作</td>
+
+  </tr>
+  <tr ng-repeat="product in store.products | orderBy:order | filter:search">
+    <td class="tdCenter"><img ng-src="/img/products/{{product.sku}}.jpg" alt="{{product.name}}"></td>
+    <td>
+      <a href="#/product/{{product.sku}}"><b>{{product.name}}</b></a><br/>
+      {{product.description}}
+    </td>
+    <td>
+      {{product.price | currency:'￥'}}
+    </td>
+    <td>
+      <a href="" ng-click="cart.addItem(product.sku, product.name, product.price, 1)">放入购物车</a>
+    </td>
+  </tr>
+  <tr class="well">
+    <td colspan="4" class="tdRight">
+      <cart-info></cart-info>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  switchPage(2);
+</script>

@@ -1,0 +1,62 @@
+﻿<p class="text-info">
+    <img ng-src="img/products/{{product.sku}}.jpg" alt="{{product.name}}"/>
+    {{product.name}}: {{product.description}}<br />
+</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+
+            <!-- product info -->
+            <table class="table table-bordered">
+
+                <tr class="well">
+                    <td class="tdRight" colspan="3" >
+                      <cart-info is-show="true"></cart-info>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="tdRight"><b>热量</b></td>
+                    <td class="tdCenter"><h2>{{product.cal}}</h2></td>
+                    <td />
+                </tr>
+                <tr ng-repeat="(nutrientName, nutrientValue) in product.nutrients">
+                    <td class="tdRight"><b>{{nutrientName}} {{nutrientValue}}</b></td>
+                    <td class="tdCenter"><img ng-src="img/r{{nutrientValue}}.png" alt="{{nutrientValue}}" /></td>
+                    <td>
+                        <b>{{store.dvaCaption[nutrientValue]}}</b>:
+                        {{store.dvaRange[nutrientValue]}}
+                    </td>
+                </tr>
+
+                <tr class="well">
+                    <td class="tdRight" colspan="3" >
+                      <cart-info is-show="true"></cart-info>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+        <!-- buttons -->
+        <div class="col-md-4">
+            <button
+                class="btn btn-block btn-success"
+                ng-click="cart.addItem(product.sku, product.name, product.price, 1)">
+                <i class="glyphicon glyphicon-shopping-cart icon-white" /> 加入购物车
+            </button>
+            <button
+                class="btn btn-block btn-danger"
+                ng-click="cart.addItem(product.sku, product.name, product.price, -10000)"
+                ng-disabled="cart.getTotalCount(product.sku) < 1">
+                <i class="glyphicon glyphicon-trash icon-white" /> 从购物车移除
+            </button>
+            <button
+                class="btn btn-block"
+                onclick="window.location.href=''">
+                <i class="glyphicon glyphicon-chevron-left" /> 返回商品列表
+            </button>
+        </div>
+    </div>
+</div>

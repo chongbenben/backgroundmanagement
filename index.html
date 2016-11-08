@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularStore">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>零食妞-后台管理</title>
+  <link rel="shortcut icon" href="logo.ico" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="top well">
+    <div class="container-fluid" style="margin-top:-20px;">
+      <div class="row-fluid">
+        <h1 class="pull-left">
+          <a href="index.html"><img src="/img/logo.png" width="60" height="60" alt="logo" /></a>
+          零食妞后台管理
+        </h1>
+
+        <ul class="nav navbar-nav pull-right" style="margin-top:30px;">
+        <li class='dropdown'>
+          <a class='dropdown-toggle' data-toggle='dropdown' href='javascript:;'>
+            <i class='icon-envelope'></i>
+            Messages
+            <span class='badge'>5</span>
+            <b class='caret'></b>
+          </a>
+          <ul class='dropdown-menu'>
+            <li>
+              <a href='javascript:;'>New message</a>
+            </li>
+            <li>
+              <a href='javascript:;'>Inbox</a>
+            </li>
+            <li>
+              <a href='javascript:;'>Out box</a>
+            </li>
+            <li>
+              <a href='javascript:;'>Trash</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href='javascript:;'>
+            <i class='icon-cog'></i>
+            Settings
+          </a>
+        </li>
+        <li class='dropdown user'>
+          <a class='dropdown-toggle' data-toggle='dropdown' href='javascript:;'>
+            <i class='icon-user'></i>
+            <strong>chongbenben</strong>
+            <img class="img-rounded" width="20" height="20" src="/img/mario.png" />
+            <b class='caret'></b>
+          </a>
+          <ul class='dropdown-menu'>
+            <li>
+              <a href='javascript:;'>Edit Profile</a>
+            </li>
+            <li class='divider'></li>
+            <li>
+              <a href="/">Sign out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="center well">
+    <div class="left">
+      <ul class="nav nav-tabs nav-stacked">
+        <li class="active"><a href="#/home">首页</a></li>
+        <li><a href="#/tuijian">商品管理</a></li>
+        <li><a href="#/store">购物车管理</a></li>
+        <li><a href="#/shopping">待续-。-</a></li>
+        <li><a href="#/contact">待续= 。=</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+           啦啦啦啦 <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:;">C</a></li>
+            <li><a href="javascript:;">B</a></li>
+            <li><a href="javascript:;">B</a></li>
+            <li class="divider"></li>
+            <li><a href="javascript:;">666</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="right">
+      <ng-view></ng-view>
+    </div>
+  </div>
+  <script src="/js/libs/jquery.min.js"></script>
+  <script src="/js/libs/bootstrap.min.js"></script>
+  <script src="/js/libs/angular.min.js"></script>
+  <script src="/js/libs/angular-route.min.js"></script>
+
+  <script src="/js/controller.js"></script>
+  <script src="/js/service.js"></script>
+  <script src="/js/shoppingCart.js"></script>
+
+  <script src="/js/views/common.js"></script>
+  <script src="/js/views/homeCtrl.js"></script>
+  <script src="/js/views/shoppingCtrl.js"></script>
+  <script src="/js/views/storeCtrl.js"></script>
+  <script src="/js/views/cartCtrl.js"></script>
+  <script src="/js/views/storeServ.js"></script>
+  <script src="/js/views/cartServ.js"></script>
+  <script src="/js/views/tuijianCtrl.js"></script>
+  <script src="/js/views/contactCtrl.js"></script>
+
+  <script src="/js/product.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/directive.js"></script>
+  <script type="text/javascript">
+    // $(".nav-tabs>li").click(function() {
+    //   $(this).addClass("active").siblings().removeClass('active');
+    // })
+  </script>
+</body>
+
+</html>

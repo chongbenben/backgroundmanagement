@@ -1,0 +1,141 @@
+<h1>Welcome! {{title}}</h1>
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  增加商品
+</button>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+              增加商品
+           </h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tr class="well">
+            <td>商品ID</td>
+            <td><input id="shopId" type="text" name="name" placeholder="ID"></td>
+          </tr>
+          <tr class="well">
+            <td>商品名称</td>
+            <td><input id="shopName" type="text" name="name" placeholder="名称"></td>
+          </tr>
+          <tr class="well">
+            <td>商品价格</td>
+            <td><input id="shopPrice" type="text" name="name" placeholder="价格"></td>
+          </tr>
+          <tr class="well">
+            <td>图片地址</td>
+            <td><input id="shopSrc" type="text" name="name" placeholder="图片地址"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          关闭
+        </button>
+        <button type="button" class="btn btn-primary" id="submitBtn">
+          提交更改
+        </button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<p>
+  搜索：<input class="form-control" ng-model="search">
+</p>
+<table class="table table-bordered goodlist111">
+  <tr class="well">
+    <td>图片</td>
+    <td  ng-click="order='(order ==id)?order=-id:order=id' ">商品ID <button type="button" class="btn btn-info">反向</button> </td>
+    <td  ng-click="order='(order ==name)?order=-name:order=name' ">名称<button type="button" class="btn btn-info">反向</button></td>
+    <td ng-click="order='(order ==price)?order=-price:order=price' ">价格<button type="button" class="btn btn-info">反向</button></td>
+    <td>操作</td>
+    <td>操作</td>
+  </tr>
+  <tr  class="text-center " ng-repeat="item in items | orderBy:order | filter:search">
+    <td class="shoplistimg"><img width="50" height="50" ng-src="{{item.img}}" alt="{{item.name}}"></td>
+    <td  class="shoplistid">
+    {{item.id}}
+    </td>
+    <td class="shoplistname">
+      {{item.name}}
+    </td>
+    <td class="shoplistprice">
+      {{item.price | currency:'￥'}}
+    </td>
+    <td>
+      <!-- <button type="button" class="btn btn-success">编辑</button> -->
+      <button class="btn btn-primary btn-success" id="updatebtn" data-toggle="modal"
+   data-target="#myupdateModal">
+   编辑
+</button>
+    </td>
+    <td>
+    <button type="button" class="btn btn-danger" id="delbtn">删除</button>
+    </td>
+  </tr>
+</table>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myupdateModal" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close"
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               编辑商品信息
+            </h4>
+         </div>
+         <div class="modal-body">
+           <table class="table table-bordered">
+             <tr class="well">
+               <td>商品ID</td>
+               <td><input id="upId" type="text" name="name" disabled="disabled"></td>
+             </tr>
+             <tr class="well">
+               <td>商品名称</td>
+               <td><input id="upName" type="text" name="name" ></td>
+             </tr>
+             <tr class="well">
+               <td>商品价格</td>
+               <td><input id="upPrice" type="text" name="name" ></td>
+             </tr>
+             <tr class="well">
+               <td>图片地址</td>
+               <td><input id="upSrc" type="text" name="name" ></td>
+             </tr>
+           </table>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" class="btn btn-primary" id="updateBtn">
+               提交更改
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+
+<script>
+  // $(function() {
+  //   $('#myModal').modal('hide');
+  //   $('#myModal').on('hide.bs.modal', function() {
+  //     console.log('嘿，我听说您喜欢模态框...');
+  //   });
+  // });
+  // switchPage(1);
+</script>

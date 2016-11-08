@@ -1,0 +1,82 @@
+﻿<p class="text-info">
+    感谢您使用Angular Store购买商品.<br />
+    这里是您的购物车. 在这里您可以编辑已购商品，返回商品列表或清空购物车
+</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+
+            <!-- items -->
+            <table class="table table-bordered">
+
+                <!-- header -->
+                <tr class="well">
+                    <td><b>商品</b></td>
+                    <td class="tdCenter"><b>数量</b></td>
+                    <td class="tdRight"><b>价格</b></td>
+                    <td />
+                </tr>
+
+                <!-- empty cart message -->
+                <tr ng-hide="cart.getTotalCount() > 0" >
+                    <td class="tdCenter" colspan="4">
+                        你的购物车空空如也.
+                    </td>
+                </tr>
+
+                <!-- cart items -->
+                <tr ng-repeat="item in cart.items | orderBy:'name'">
+                    <td>{{item.name}}</td>
+                    <td class="tdCenter">
+                      <div class="input-append">
+                        <input
+                            class="text-center"
+                            ng-model="item.quantity"
+                            ng-change="cart.saveItems()" />
+                        <button
+                            class="btn btn-success" type="button"
+                            ng-disabled="item.quantity >= 1000"
+                            ng-click="cart.addItem(item.sku, item.name, item.price, +1)">+</button>
+                        <button
+                            class="btn btn-inverse" type="button"
+                            ng-disabled="item.quantity <= 1"
+                            ng-click="cart.addItem(item.sku, item.name, item.price, -1)">-</button>
+                      </div>
+                    </td>
+                    <td class="tdRight">{{item.price * item.quantity | currency:'￥'}}</td>
+                    <td class="tdCenter" title="remove from cart">
+                        <a href="" ng-click="cart.addItem(item.sku, item.name, item.price, -10000000)" >
+                            <i class="icon-remove" />
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- footer -->
+                <tr class="well">
+                    <td><b>合计</b></td>
+                    <td class="tdCenter"><b>{{cart.getTotalCount()}}</b></td>
+                    <td class="tdRight"><b>{{cart.getTotalPrice() | currency:'￥'}}</b></td>
+                    <td />
+                </tr>
+            </table>
+        </div>
+
+        <!-- buttons -->
+        <div class="col-md-4">
+            <p class="text-info">
+                <button
+                    class="btn btn-block"
+                    onclick="window.location.href='index.html'">
+                    <i class="icon-chevron-left" /> 返回购物车
+                </button>
+                <button
+                    class="btn btn-block btn-danger"
+                    ng-click="cart.clearItems()"
+                    ng-disabled="cart.getTotalCount() < 1" >
+                    <i class="icon-trash icon-white" /> 清空购物车
+                </button>
+            </p>
+        </div>
+    </div>
+</div>

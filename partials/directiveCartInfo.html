@@ -1,0 +1,5 @@
+<a href="#/cart" title="进入购物车" ng-disabled="cart.getTotalCount() < 1">
+    <i class="glyphicon glyphicon-shopping-cart" />
+    <b>{{cart.getTotalCount()}}</b> 个, <b>{{cart.getTotalPrice() | currency:'￥'}}</b>
+    <span ng-show="isShow && cart.getTotalCount(product.sku) > 0"><br />此商品已在购物车中</span>
+</a>
