@@ -3,7 +3,7 @@
 
 ```
 
-	git clone git@github.com:chongbenben/backgroundmanagement.git
+	git clone https://github.com/chongbenben/backgroundmanagement.git
 ```
 ### 项目成员 ###
 
