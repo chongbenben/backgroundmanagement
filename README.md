@@ -5,11 +5,7 @@
 
 	git clone https://github.com/chongbenben/backgroundmanagement.git
 ```
-### 项目成员 ###
 
-
-#### 种奔奔 [https://github.com/chongbenben](https://github.com/chongbenben "https://github.com/chongbenben") ####
-#### 杨倩倩 [https://github.com/qiyian](https://github.com/qiyian "https://github.com/qiyian") ####
 
  mysql数据库建立数据库，数据库名test，表名：good 结构如下
 
